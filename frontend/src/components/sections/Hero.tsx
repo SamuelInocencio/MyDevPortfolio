@@ -53,7 +53,7 @@ export default function Hero() {
           transition={{ delay: 0.45, duration: 0.7 }}
           className="font-orbitron font-black text-4xl md:text-6xl lg:text-7xl text-ironman-gold drop-shadow-[0_0_18px_rgba(251,202,3,0.45)]"
         >
-          Samuel Ferreira
+          SAMUEL INOCENCIO
         </motion.h1>
 
         <motion.h2
@@ -62,7 +62,7 @@ export default function Hero() {
           transition={{ delay: 0.6, duration: 0.7 }}
           className="mt-4 font-orbitron tracking-[0.4em] text-base md:text-xl text-ironman-gold/80"
         >
-          Fullstack Engineer
+          Fullstack Developer
         </motion.h2>
 
         <motion.p

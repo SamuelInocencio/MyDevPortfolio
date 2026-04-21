@@ -4,13 +4,13 @@ import { Github, Linkedin, MessageCircle } from 'lucide-react';
 const socials = [
   {
     label: 'GitHub',
-    href: 'https://github.com/seu-usuario',
+    href: 'https://github.com/SamuelInocencio',
     icon: Github,
     accent: '#FBCA03',
   },
   {
     label: 'LinkedIn',
-    href: 'https://linkedin.com/in/seu-usuario',
+    href: 'https://www.linkedin.com/in/samuel-ferreira-inocencio/',
     icon: Linkedin,
     accent: '#67C7EB',
   },
