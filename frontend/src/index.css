@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  body {
+    @apply font-rajdhani bg-ironman-wine text-white antialiased;
+    background-image: radial-gradient(circle at top, #6a0c0b 0%, #2b0404 70%, #0b0202 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-orbitron uppercase tracking-widest;
+  }
+
+  ::selection {
+    background-color: #fbca03;
+    color: #6a0c0b;
+  }
+}
+
+@layer components {
+  .hud-panel {
+    @apply relative rounded-xl border border-ironman-gold/40 bg-black/40 backdrop-blur-sm;
+    box-shadow:
+      0 0 0 1px rgba(251, 202, 3, 0.05),
+      0 0 25px rgba(170, 5, 5, 0.25);
+  }
+
+  .hud-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(
+        rgba(251, 202, 3, 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(251, 202, 3, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  .hud-title {
+    @apply font-orbitron text-ironman-gold tracking-[0.35em] uppercase;
+    text-shadow: 0 0 12px rgba(251, 202, 3, 0.55);
+  }
+
+  .btn-hud {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 font-orbitron uppercase tracking-widest text-sm border rounded-md transition-all duration-200;
+    border-color: #fbca03;
+    color: #fbca03;
+  }
+
+  .btn-hud:hover {
+    background-color: #fbca03;
+    color: #6a0c0b;
+    box-shadow: 0 0 22px rgba(251, 202, 3, 0.55);
+  }
+
+  .btn-cyan {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 font-orbitron uppercase tracking-widest text-sm border rounded-md transition-all duration-200;
+    border-color: #67c7eb;
+    color: #67c7eb;
+  }
+
+  .btn-cyan:hover {
+    background-color: #67c7eb;
+    color: #0b0202;
+    box-shadow: 0 0 22px rgba(103, 199, 235, 0.65);
+  }
+
+  .input-hud {
+    @apply w-full bg-black/50 border border-ironman-gold/50 rounded-md px-4 py-2.5 font-rajdhani text-white placeholder:text-white/40 focus:outline-none focus:border-ironman-cyan focus:ring-2 focus:ring-ironman-cyan/40 transition;
+  }
+}
