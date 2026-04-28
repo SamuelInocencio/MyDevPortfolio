@@ -89,7 +89,7 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-16 font-orbitron text-xs tracking-[0.4em] text-white/40"
         >
-          STARK INDUSTRIES — © {new Date().getFullYear()}
+          SAMUEL INOCENCIO — © {new Date().getFullYear()}
         </motion.div>
       </div>
     </section>

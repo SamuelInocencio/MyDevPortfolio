@@ -43,7 +43,7 @@ export default function Navbar() {
             <div className="absolute inset-1 rounded-full bg-black/60" />
           </div>
           <span className="font-orbitron text-ironman-gold tracking-[0.3em] text-sm md:text-base">
-            STARK.DEV
+            INOCENCIO.DEV
           </span>
         </Link>
 

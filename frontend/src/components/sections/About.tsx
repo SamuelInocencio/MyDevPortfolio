@@ -5,7 +5,7 @@ const items = [
   {
     icon: Cpu,
     title: 'Engenharia',
-    text: 'Código limpo, tipado e testado — com a mesma disciplina que Stark aplica na armadura.',
+    text: 'Código limpo, tipado e testado — com a mesma disciplina de quem constrói uma armadura blindada.',
   },
   {
     icon: Layers3,

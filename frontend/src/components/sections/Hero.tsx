@@ -44,7 +44,7 @@ export default function Hero() {
           transition={{ delay: 0.3, duration: 0.6 }}
           className="font-orbitron tracking-[0.55em] text-ironman-cyan text-xs md:text-sm mb-4"
         >
-          J.A.R.V.I.S. ONLINE
+          SYSTEM ONLINE
         </motion.p>
 
         <motion.h1
