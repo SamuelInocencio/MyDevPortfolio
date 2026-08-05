@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const baseURL = import.meta.env.VITE_API_URL ?? 'http://localhost:3333/api/v1';
+// Usa `||` (e nao `??`) de proposito: o build pode receber VITE_API_URL como
+// string vazia, que passaria pelo `??` e deixaria o baseURL vazio.
+// O fallback e relativo porque frontend e backend compartilham o dominio.
+const baseURL = import.meta.env.VITE_API_URL || '/api/v1';
 
 export const api = axios.create({
   baseURL,
