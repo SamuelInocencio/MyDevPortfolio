@@ -1,0 +1,53 @@
+# Rotas de samuelinocencio.cloud -- mantidas FORA do main.yaml de proposito.
+#
+# O EasyPanel regenera main.yaml a partir do banco dele, e o banco nao tem
+# registro deste dominio (o formulario do painel nao persiste). Toda
+# regeneracao apagava as rotas escritas la e derrubava o site com 404.
+# O provider de arquivo do Traefik le o diretorio inteiro
+# (TRAEFIK_PROVIDERS_FILE_DIRECTORY=/data/config, WATCH=true), entao este
+# arquivo e carregado junto e o EasyPanel nao o toca.
+http:
+  middlewares:
+    portfolio-redirect-to-https:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+  routers:
+    # /api vem antes do catch-all do site: o backend serve /api/v1/* nativamente,
+    # sem strip de prefixo.
+    portfolio-api-https:
+      rule: "(Host(`samuelinocencio.cloud`) || Host(`www.samuelinocencio.cloud`)) && PathPrefix(`/api`)"
+      priority: 200
+      service: portfolio-backend
+      entryPoints: [https]
+      tls:
+        certResolver: letsencrypt
+
+    portfolio-web-https:
+      rule: "Host(`samuelinocencio.cloud`) || Host(`www.samuelinocencio.cloud`)"
+      priority: 100
+      service: portfolio-frontend
+      entryPoints: [https]
+      tls:
+        certResolver: letsencrypt
+
+    portfolio-web-http:
+      rule: "Host(`samuelinocencio.cloud`) || Host(`www.samuelinocencio.cloud`)"
+      priority: 100
+      service: portfolio-frontend
+      entryPoints: [http]
+      middlewares: [portfolio-redirect-to-https]
+
+  services:
+    portfolio-frontend:
+      loadBalancer:
+        passHostHeader: true
+        servers:
+          - url: http://portfolio_frontend:80
+
+    portfolio-backend:
+      loadBalancer:
+        passHostHeader: true
+        servers:
+          - url: http://portfolio_backend:3333
